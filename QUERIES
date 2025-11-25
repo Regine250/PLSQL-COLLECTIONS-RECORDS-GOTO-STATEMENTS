@@ -1,1 +1,100 @@
+1️⃣ PL/SQL Collections
+SET SERVEROUTPUT ON;
+
+DECLARE
+  -- Associative array (index-by table) for student names
+  TYPE student_names IS TABLE OF VARCHAR2(50) INDEX BY PLS_INTEGER;
+  students student_names;
+
+  -- Nested table for marks
+  TYPE marks_table IS TABLE OF NUMBER;
+  marks marks_table := marks_table(85.50, 92.00, 78.25, 88.75, 90.00, 81.50, 95.00, 87.25, 82.75, 76.50);
+
+  i PLS_INTEGER;
+BEGIN
+  -- Add values to associative array
+  students(1) := 'Alice Uwase';
+  students(2) := 'Brian Mukamana';
+  students(3) := 'Celine Niyonzima';
+  students(4) := 'David Habimana';
+  students(5) := 'Emely Uwitonze';
+  students(6) := 'Francis Irakoze';
+  students(7) := 'Grace Mukarurinda';
+  students(8) := 'Hassan Nshimiyimana';
+  students(9) := 'Irene Uwase';
+  students(10) := 'Jean Bosco';
+
+  DBMS_OUTPUT.PUT_LINE('=== Student Marks ===');
+  FOR i IN 1 .. marks.COUNT LOOP
+    DBMS_OUTPUT.PUT_LINE(students(i) || ' scored ' || marks(i));
+  END LOOP;
+END;
+/
+
+2️⃣ PL/SQL Records
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+  -- Define a RECORD type
+  TYPE student_rec IS RECORD (
+    id NUMBER,
+    name VARCHAR2(50),
+    marks NUMBER,
+    grade CHAR(1)
+  );
+
+  -- Declare variable of that type
+  s student_rec;
+
+BEGIN
+  -- Assign values
+  s.id := 1;
+  s.name := 'Alice Uwase';
+  s.marks := 85;
+
+  -- Compute grade
+  IF s.marks >= 80 THEN
+    s.grade := 'A';
+  ELSIF s.marks >= 70 THEN
+    s.grade := 'B';
+  ELSE
+    s.grade := 'C';
+  END IF;
+  
+  --print output
+  DBMS_OUTPUT.PUT_LINE('Student ID: ' || s.id);
+  DBMS_OUTPUT.PUT_LINE('Name: ' || s.name);
+  DBMS_OUTPUT.PUT_LINE('Marks: ' || s.marks);
+  DBMS_OUTPUT.PUT_LINE('Grade: ' || s.grade);
+END
+/
+
+3️⃣ PL/SQL GOTO
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+  -- Cursor to fetch students
+  CURSOR student_cur IS
+    SELECT full_name, marks
+    FROM students
+    ORDER BY s_id;
+
+  v_name students.full_name%TYPE;
+  v_marks students.marks%TYPE;
+
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('=== Student Marks ===');
+
+  OPEN student_cur;
+  LOOP
+    FETCH student_cur INTO v_name, v_marks;
+    EXIT WHEN student_cur%NOTFOUND;
+    
+    DBMS_OUTPUT.PUT_LINE(v_name || ' scored ' || v_marks);
+  END LOOP;
+  CLOSE student_cur;
+END;
+/
 
