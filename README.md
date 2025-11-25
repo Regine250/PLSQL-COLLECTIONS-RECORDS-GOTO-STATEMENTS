@@ -64,18 +64,26 @@ This project simulates a **school area** with sample students:
 
 | Student_ID | Student_Name   | Subject          | Marks | Grade | Status |
 | ---------- | -------------- | ---------------- | ----- | ----- | ------ |
-| 1          | Baziga Caleb   | Database Systems | 85    | A     | Passed |
-| 2          | Nkuranga Sabin | Database Systems | 65    | C     | Passed |
-| 3          | Muneza         | Database Systems | 35    | F     | Failed |
-| 4          | Ngabo Prince   | Database Systems | 90    | A     | Passed |
-| 5          | Uwase Aline    | Database Systems | 75    | B     | Passed |
-
-
-* Baziga Caleb
-* Nkuranga Sabin
-* Muneza
-* Ngabo Prince
-* Uwase Aline
+| 1          | Alice Uwera    | Mathematics      | 85.5  | A     | Passed |
+| 2          | Brian Mukamana | Computer Science | 65    | C     | Passed |
+| 3          |Celine Niyonzima| Physics          | 35    | F     | Failed |
+| 4          |David Habimana  | Chemistry        | 90    | A     | Passed |
+| 5          | Emely Uwitonze | Biology          | 75    | B     | Passed |
+| 6          |Francis Irakoze | Economics        | 81.5  | A     | Passed |
+| 7          |Grace Mukarurinda| Mathematics     | 95    | A     | Passed |
+| 8          |Hassan Nshimiyimana |Computer Science|87.25| A     | Passed |
+| 9          |Irene Uwase     | Physics          | 82.75 | A     | Passed |
+| 10         |Jean Bosco      | Chemistry        | 76.5  | A   | Passed |
+* Alice Uwera
+* Brian Mukamana
+* Celine Niyonzima
+* David Habimana 
+* Emely Uwitonze
+* Francis Irakoze
+* Grace Mukarurinda
+* Hassan Nshimiyimana
+* Irene Uwase 
+* Jean Bosco 
 
 The system stores their names and marks, calculates grades, and skips students who failed using a `GOTO` statement.
 
@@ -134,10 +142,10 @@ DECLARE
   i NUMBER;
 BEGIN
   -- Assign values
-  students(1) := 'Baziga Caleb';
-  students(2) := 'Nkuranga Sabin';
+  students(1) := 'Alice Uwera';
+  students(2) := 'Brian Mukamana';
   students(3) := 'Muneza';
-  students(4) := 'Ngabo Prince';
+  students(10) := 'Jean Bosco ';
 
   marks(1) := 85;
   marks(2) := 65;
@@ -185,12 +193,18 @@ END;
 ## 7️⃣ Expected Output
 
 ```
-=== STUDENT RESULTS ===
-1. Baziga Caleb - 85 - Grade A
-2. Nkuranga Sabin - 65 - Grade C
-Muneza failed and was skipped.
-4. Ngabo Prince - 90 - Grade A
-```
+=== Student Marks ===
+Alice Uwase scored 85.5
+Brian Mukamana scored 92
+Celine Niyonzima scored 78.25
+David Habimana scored 88.75
+Emely Uwitonze scored 90
+Francis Irakoze scored 81.5
+Grace Mukarurinda scored 95
+Hassan Nshimiyimana scored 87.25
+Irene Uwase scored 82.75
+Jean Bosco scored 76.5
+
 <img width="960" height="504" alt="image" src="https://github.com/user-attachments/assets/381f56ea-2029-47b1-8eb2-fe2e799f0d86" />
 
 ---
@@ -204,8 +218,8 @@ By simulating a school environment, we learned how to store, process, and contro
 
 ## 9️⃣ Author Information
 
-**Name:** Nkuranga Baziga Caleb
-**Student ID:** 28845
+**Name:** IGIHOZO Regine Pacis
+**Student ID:** 27703
 **Lecturer:** Maniraguha Eric
 **Course:** PL/SQL Programming
 **Academic Year:** 2025–2026
